@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Matemáticas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            line-height: 1.6;
+        }
+        
+        .page {
+            background: white;
+            padding: 40px 50px;
+            max-width: 21cm;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            min-height: 25cm;
+        }
+        
+        /* NIVEL 1 - TEMA PRINCIPAL (ROJO) */
+        .tema-principal {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 20px 25px;
+            margin-bottom: 35px;
+            margin-top: 45px;
+            letter-spacing: 3px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(238, 90, 111, 0.3);
+            text-align: center;
+        }
+        
+        .tema-principal:first-child {
+            margin-top: 0;
+        }
+        
+        /* NIVEL 2 - SUBTEMAS (AZUL) */
+        .subtema {
+            color: #4a90e2;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 12px 20px;
+            margin-top: 30px;
+            margin-bottom: 18px;
+            background: linear-gradient(90deg, #e3f2fd 0%, transparent 100%);
+            border-left: 5px solid #4a90e2;
+            border-radius: 5px;
+        }
+        
+        /* NIVEL 3 - CONCEPTOS CLAVE (VERDE) */
+        .concepto {
+            color: #27ae60;
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .concepto:before {
+            content: "●";
+            position: absolute;
+            left: 10px;
+            font-size: 20px;
+        }
+        
+        /* NIVEL 4 - DETALLES (NEGRO) */
+        .detalle {
+            color: #2c3e50;
+            font-size: 15px;
+            margin-left: 50px;
+            margin-bottom: 8px;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .detalle:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #95a5a6;
+        }
+        
+        /* RECUADROS MEJORADOS */
+        .recuadro-ejemplo {
+            border: 3px solid #27ae60;
+            background: linear-gradient(135deg, #f0fff4 0%, #e8f8f0 100%);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.15);
+        }
+        
+        .recuadro-ejemplo .titulo {
+            color: #27ae60;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recuadro-ejemplo .titulo:before {
+            content: "📝";
+            font-size: 24px;
+        }
+        
+        .recuadro-ejemplo .contenido {
+            color: #2c3e50;
+            font-size: 14px;
+            line-height: 2;
+            font-family: 'Fira Code', monospace;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .recuadro-importante {
+            border: 3px solid #e74c3c;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.15);
+        }
+        
+        .recuadro-importante .titulo {
+            color: #e74c3c;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recuadro-importante .titulo:before {
+            content: "⚠️";
+            font-size: 24px;
+        }
+        
+        .recuadro-importante .contenido {
+            color: #2c3e50;
+            font-size: 15px;
+            line-height: 1.8;
+            font-family: 'Fira Code', monospace;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .recuadro-explicacion {
+            border: 3px solid #4a90e2;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e3f2fd 100%);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15);
+        }
+        
+        .recuadro-explicacion .titulo {
+            color: #4a90e2;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recuadro-explicacion .titulo:before {
+            content: "💡";
+            font-size: 24px;
+        }
+        
+        .recuadro-explicacion .contenido {
+            color: #2c3e50;
+            font-size: 15px;
+            line-height: 1.8;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .formula {
+            font-family: 'Fira Code', monospace;
+            background: #f8f9fa;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .diagrama {
+            border: 3px solid #95a5a6;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(149, 165, 166, 0.1);
+        }
+        
+        .diagrama-titulo {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        
+        .separador {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #bdc3c7 50%, transparent 100%);
+            margin: 30px 0;
+        }
+        
+        /* Mejoras visuales adicionales */
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* Estilos responsivos */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                border-radius: 0;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PÁGINA 1: TEMA 1 - NÚMEROS REALES -->
+    <div class="page">
+        <div class="tema-principal">Tema 1: Los números reales</div>
+        
+        <div class="subtema">1. Clasificación de ℝ (números reales)</div>
+        
+        <div class="diagrama">
+            <div class="diagrama-titulo">Conjuntos numéricos y su jerarquía</div>
+            <div style="font-family: 'Fira Code', monospace; line-height: 2.2; text-align: left; display: inline-block;">
+                <strong>ℝ</strong> (Números Reales)<br>
+                │<br>
+                ├─── <strong>ℚ</strong> (Racionales)<br>
+                │    │<br>
+                │    ├─── <strong>ℤ</strong> (Enteros: ..., -2, -1, 0, 1, 2, ...)<br>
+                │    │    │<br>
+                │    │    └─── <strong>ℕ</strong> (Naturales: 1, 2, 3, 4, ...)<br>
+                │    │<br>
+                │    └─── Fracciones (p/q donde q ≠ 0)<br>
+                │<br>
+                └─── <strong>Irracionales</strong> (√2, π, e, √3, ...)
+            </div>
+        </div>
+        
+        <div class="concepto">Números naturales (ℕ)</div>
+        <div class="detalle">Números positivos para contar: {1, 2, 3, 4, 5...}</div>
+        <div class="detalle">Se usan para enumerar y contar elementos</div>
+        
+        <div class="concepto">Números enteros (ℤ)</div>
+        <div class="detalle">Incluyen negativos y el cero: {..., -3, -2, -1, 0, 1, 2, 3...}</div>
+        <div class="detalle">Representan deudas, temperaturas bajo cero, etc.</div>
+        
+        <div class="concepto">Números racionales (ℚ)</div>
+        <div class="detalle">Se pueden expresar como fracción <span class="formula">a/b</span> donde b ≠ 0</div>
+        <div class="detalle">Incluyen decimales exactos y periódicos</div>
+        <div class="detalle">Ejemplos: 3/4 = 0.75, -2/5 = -0.4, 1/3 = 0.333...</div>
+        
+        <div class="concepto">Números irracionales</div>
+        <div class="detalle">NO se pueden expresar como fracción</div>
+        <div class="detalle">Tienen decimales infinitos NO periódicos</div>
+        <div class="detalle">Ejemplos: √2 ≈ 1.414213..., π ≈ 3.141592..., e ≈ 2.718281...</div>
+        
+        <div class="subtema">2. Intervalos</div>
+        
+        <div class="concepto">2.1 Tipos de intervalos</div>
+        <div class="detalle"><span class="formula">(a, b) abierto</span>: {x ∈ ℝ | a < x < b} → <span class="highlight">excluye extremos</span></div>
+        <div class="detalle"><span class="formula">[a, b] cerrado</span>: {x ∈ ℝ | a ≤ x ≤ b} → <span class="highlight">incluye extremos</span></div>
+        <div class="detalle"><span class="formula">[a, b)</span> semiabierto: {x ∈ ℝ | a ≤ x < b}</div>
+        <div class="detalle"><span class="formula">(a, b]</span> semicerrado: {x ∈ ℝ | a < x ≤ b}</div>
+        
+        <div class="concepto">2.2 Semirrectas</div>
+        <div class="detalle"><span class="formula">(-∞, a]</span>: x ≤ a (todos los números menores o iguales a <em>a</em>)</div>
+        <div class="detalle"><span class="formula">[a, +∞)</span>: x ≥ a (todos los números mayores o iguales a <em>a</em>)</div>
+        <div class="detalle"><span class="formula">(-∞, a)</span>: x < a (todos los números menores que <em>a</em>)</div>
+        <div class="detalle"><span class="formula">(a, +∞)</span>: x > a (todos los números mayores que <em>a</em>)</div>
+        
+        <div class="concepto">2.3 Unión e intersección</div>
+        <div class="detalle"><strong>Unión (∪):</strong> junta todos los puntos de ambos conjuntos</div>
+        <div class="detalle"><strong>Intersección (∩):</strong> solo los puntos comunes</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+A = [2, 5]<br>
+B = [1, 20]<br>
+──────────────────────<br>
+A ∪ B = [1, 20]<br>
+(todos los puntos de A y B)<br>
+<br>
+A ∩ B = [2, 5]<br>
+(solo donde coinciden)
+            </div>
+        </div>
+        
+        <div class="subtema">3. Radicales</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">REGLA FUNDAMENTAL</div>
+            <div class="contenido" style="text-align: center; font-size: 18px;">
+                <strong>ⁿ√(aᵐ) = a^(m/n)</strong>
+            </div>
+        </div>
+        
+        <div class="concepto">3.1 Simplificación de radicales</div>
+        <div class="detalle">Extraer factores que tengan potencias del índice</div>
+        <div class="detalle">Buscar cuadrados perfectos dentro de raíces cuadradas</div>
+        <div class="detalle">Buscar cubos perfectos dentro de raíces cúbicas</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLOS</div>
+            <div class="contenido">
+√12 = √(4 · 3) = √4 · √3 = 2√3<br>
+<br>
+³√24 = ³√(8 · 3) = ³√8 · ³√3 = 2³√3<br>
+<br>
+⁴√32 = ⁴√(16 · 2) = ⁴√16 · ⁴√2 = 2⁴√2
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 2: RADICALES CONTINUACIÓN -->
+    <div class="page">
+        <div class="concepto">3.2 Suma y resta de radicales</div>
+        <div class="detalle">Solo se pueden sumar/restar radicales <span class="highlight">semejantes</span></div>
+        <div class="detalle">Mismo índice y mismo radicando</div>
+        <div class="detalle">Si no son semejantes, primero simplificar</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+3√24 - √6 + 2√6<br>
+<br>
+Paso 1: Simplificamos √24<br>
+√24 = √(4·6) = 2√6<br>
+<br>
+Paso 2: Sustituimos<br>
+3(2√6) - √6 + 2√6 = 6√6 - √6 + 2√6<br>
+<br>
+Paso 3: Sumamos los semejantes<br>
+= (6 - 1 + 2)√6 = 7√6
+            </div>
+        </div>
+        
+        <div class="concepto">3.3 Reducir radicales a índice común</div>
+        <div class="detalle">Calcular el m.c.m. de los índices</div>
+        <div class="detalle">Convertir todos los radicales al índice común</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+Reducir: √5, ³√10, ⁴√20<br>
+<br>
+Paso 1: m.c.m.(2, 3, 4) = 12<br>
+<br>
+Paso 2: Convertir<br>
+√5 = ¹²√(5⁶) = ¹²√15625<br>
+³√10 = ¹²√(10⁴) = ¹²√10000<br>
+⁴√20 = ¹²√(20³) = ¹²√8000<br>
+<br>
+Ahora todos tienen raíz 12 y se pueden comparar
+            </div>
+        </div>
+        
+        <div class="concepto">3.4 Producto y división de radicales</div>
+        <div class="detalle">Mismo índice: multiplicar/dividir radicandos directamente</div>
+        <div class="detalle">Distinto índice: primero reducir a índice común</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">FÓRMULAS</div>
+            <div class="contenido">
+<strong>Producto:</strong> ⁿ√a · ⁿ√b = ⁿ√(a·b)<br>
+<br>
+<strong>División:</strong> ⁿ√a / ⁿ√b = ⁿ√(a/b)
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Producto</div>
+            <div class="contenido">
+√5 · ³√10 · ⁴√20<br>
+<br>
+Paso 1: Reducir a índice común (12)<br>
+¹²√(5⁶) · ¹²√(10⁴) · ¹²√(20³)<br>
+<br>
+Paso 2: Multiplicar radicandos<br>
+= ¹²√(5⁶ · 10⁴ · 20³)<br>
+= ¹²√(15625 · 10000 · 8000)<br>
+<br>
+Paso 3: Simplificar factorizando<br>
+Factorizar y extraer lo posible<br>
+= 10 · ¹²√2
+            </div>
+        </div>
+        
+        <div class="concepto">3.5 Potencias y raíces</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">PROPIEDADES CLAVE</div>
+            <div class="contenido">
+(ⁿ√a)ᵐ = ⁿ√(aᵐ) = a^(m/n)<br>
+<br>
+(ᵐ√ⁿ√a) = ᵐⁿ√a<br>
+<br>
+ⁿ√(aᵐ) / ⁿ√(aⁿ) = aᵐ/ⁿ · a⁻ⁿ/ⁿ = a^((m-n)/n)
+            </div>
+        </div>
+        
+        <div class="subtema">4. Racionalización</div>
+        
+        <div class="recuadro-explicacion">
+            <div class="titulo">EXPLICACIÓN</div>
+            <div class="contenido">
+La racionalización consiste en eliminar las raíces del<br>
+denominador multiplicando por el factor adecuado.<br>
+<br>
+<strong>¿Por qué?</strong> Para facilitar cálculos y expresar el<br>
+resultado de forma más clara.
+            </div>
+        </div>
+        
+        <div class="concepto">Casos de racionalización</div>
+        <div class="detalle">Caso 1: Un solo radical en el denominador</div>
+        <div class="detalle">Caso 2: Suma o resta con radicales (usar conjugado)</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Caso 1</div>
+            <div class="contenido">
+3/√2<br>
+<br>
+Multiplicamos por √2/√2:<br>
+= (3 · √2)/(√2 · √2)<br>
+= 3√2/2
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Caso 2 (Conjugado)</div>
+            <div class="contenido">
+B/(√2 + 3)<br>
+<br>
+Multiplicamos por el conjugado (√2 - 3):<br>
+= B(√2 - 3)/[(√2 + 3)(√2 - 3)]<br>
+<br>
+Aplicamos diferencia de cuadrados:<br>
+= B(√2 - 3)/(2 - 9)<br>
+= B(√2 - 3)/(-7)<br>
+= -B(√2 - 3)/7
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 3: TEMA 2 - ECUACIONES -->
+    <div class="page">
+        <div class="tema-principal">Tema 2: Ecuaciones, inecuaciones y sistemas</div>
+        
+        <div class="subtema">1. Ecuaciones polinómicas</div>
+        
+        <div class="concepto">Ecuaciones de 2º grado</div>
+        <div class="detalle">Forma general: <span class="formula">ax² + bx + c = 0</span></div>
+        <div class="detalle">Dos tipos: completas e incompletas</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">FÓRMULA GENERAL</div>
+            <div class="contenido" style="text-align: center; font-size: 20px;">
+                <strong>x = (-b ± √(b² - 4ac)) / 2a</strong>
+            </div>
+        </div>
+        
+        <div class="concepto">Ecuaciones completas</div>
+        <div class="detalle">Tienen todos los términos: a, b y c ≠ 0</div>
+        <div class="detalle">Se resuelven con la fórmula general</div>
+        
+        <div class="concepto">Ecuaciones incompletas</div>
+        <div class="detalle"><strong>Si c = 0:</strong> x(ax + b) = 0 → x = 0 o x = -b/a</div>
+        <div class="detalle"><strong>Si b = 0:</strong> ax² + c = 0 → x² = -c/a → x = ±√(-c/a)</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Ecuación completa</div>
+            <div class="contenido">
+x² - 5x + 4 = 0<br>
+<br>
+a = 1, b = -5, c = 4<br>
+<br>
+x = (5 ± √(25 - 16))/2<br>
+x = (5 ± √9)/2<br>
+x = (5 ± 3)/2<br>
+<br>
+x₁ = 4, x₂ = 1
+            </div>
+        </div>
+        
+        <div class="concepto">Ecuaciones bicuadradas</div>
+        <div class="detalle">Forma: ax⁴ + bx² + c = 0</div>
+        <div class="detalle">Hacer cambio de variable: x² = t</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Bicuadrada</div>
+            <div class="contenido">
+x⁴ - 5x² + 4 = 0<br>
+<br>
+Paso 1: Cambio x² = t<br>
+t² - 5t + 4 = 0<br>
+<br>
+Paso 2: Resolver<br>
+t = (5 ± 3)/2<br>
+t₁ = 4, t₂ = 1<br>
+<br>
+Paso 3: Volver a x<br>
+Si t = 4 → x² = 4 → x = ±2<br>
+Si t = 1 → x² = 1 → x = ±1<br>
+<br>
+<strong>Soluciones: x = -2, -1, 1, 2</strong>
+            </div>
+        </div>
+        
+        <div class="subtema">2. Método de Ruffini</div>
+        
+        <div class="recuadro-explicacion">
+            <div class="titulo">EXPLICACIÓN</div>
+            <div class="contenido">
+El método de Ruffini nos permite:<br>
+• Encontrar raíces de polinomios<br>
+• Factorizar polinomios de grado ≥ 3<br>
+• Dividir polinomios de forma rápida<br>
+<br>
+<strong>Candidatos:</strong> divisores del término independiente
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+x³ - 4x² + x + 6 = 0<br>
+<br>
+Divisores de 6: ±1, ±2, ±3, ±6<br>
+<br>
+Probamos x = 2:<br>
+<br>
+ 2 │  1  -4   1   6<br>
+   │     2  -4  -6<br>
+   ├────────────────<br>
+      1  -2  -3   0  ✓ (resto = 0)<br>
+<br>
+Resultado: (x - 2)(x² - 2x - 3) = 0<br>
+<br>
+Ahora resolver x² - 2x - 3 = 0<br>
+x = (2 ± 4)/2<br>
+x₂ = 3, x₃ = -1<br>
+<br>
+<strong>Soluciones: x = 2, 3, -1</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 4: ECUACIONES ESPECIALES -->
+    <div class="page">
+        <div class="subtema">3. Ecuaciones con radicales</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">PROCESO</div>
+            <div class="contenido">
+1. Aislar el radical más complejo<br>
+2. Elevar al cuadrado ambos lados<br>
+3. Repetir si quedan más radicales<br>
+4. <strong>⚠️ COMPROBAR soluciones</strong> (puede haber falsas)
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+√(2x - 3) = 4 + √(x + 7)<br>
+<br>
+Paso 1: Ya está aislado, elevamos al cuadrado<br>
+2x - 3 = 16 + 8√(x + 7) + (x + 7)<br>
+<br>
+Paso 2: Simplificar y aislar el radical<br>
+2x - 3 = x + 23 + 8√(x + 7)<br>
+x - 26 = 8√(x + 7)<br>
+<br>
+Paso 3: Elevar otra vez al cuadrado<br>
+(x - 26)² = 64(x + 7)<br>
+x² - 52x + 676 = 64x + 448<br>
+x² - 116x + 228 = 0<br>
+<br>
+Paso 4: Resolver y <strong>COMPROBAR</strong> en original
+            </div>
+        </div>
+        
+        <div class="subtema">4. Ecuaciones con fracciones algebraicas</div>
+        
+        <div class="concepto">Método</div>
+        <div class="detalle">Encontrar el m.c.m. de los denominadores</div>
+        <div class="detalle">Multiplicar toda la ecuación por el m.c.m.</div>
+        <div class="detalle">Las fracciones desaparecen y queda una ecuación simple</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+(2x - 3)/(x - 5) + (x + 4)/(x - 1) = 8/3<br>
+<br>
+m.c.m. = 3(x - 5)(x - 1)<br>
+<br>
+Multiplicamos todo por el m.c.m.:<br>
+3(2x - 3)(x - 1) + 3(x + 4)(x - 5) = 8(x - 5)(x - 1)<br>
+<br>
+Desarrollar, simplificar y resolver normalmente
+            </div>
+        </div>
+        
+        <div class="subtema">5. Logaritmos</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">DEFINICIÓN</div>
+            <div class="contenido" style="font-size: 16px;">
+<strong>log<sub>a</sub>(b) = x ⟺ a<sup>x</sup> = b</strong><br>
+<br>
+"¿A qué potencia elevo <em>a</em> para obtener <em>b</em>?"
+            </div>
+        </div>
+        
+        <div class="concepto">Casos especiales</div>
+        <div class="detalle">log<sub>a</sub>(a) = 1 (porque a¹ = a)</div>
+        <div class="detalle">log<sub>a</sub>(1) = 0 (porque a⁰ = 1)</div>
+        <div class="detalle"><strong>log</strong> sin base → base 10</div>
+        <div class="detalle"><strong>ln</strong> → logaritmo natural, base <em>e</em></div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">PROPIEDADES DE LOS LOGARITMOS</div>
+            <div class="contenido">
+<strong>Producto:</strong><br>
+log<sub>a</sub>(P · Q) = log<sub>a</sub>(P) + log<sub>a</sub>(Q)<br>
+<br>
+<strong>Cociente:</strong><br>
+log<sub>a</sub>(P / Q) = log<sub>a</sub>(P) - log<sub>a</sub>(Q)<br>
+<br>
+<strong>Potencia:</strong><br>
+log<sub>a</sub>(P<sup>n</sup>) = n · log<sub>a</sub>(P)<br>
+<br>
+<strong>Cambio de base:</strong><br>
+log<sub>a</sub>(P) = log<sub>c</sub>(P) / log<sub>c</sub>(a)
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLOS</div>
+            <div class="contenido">
+log₂(8) = 3  porque 2³ = 8<br>
+log₁₀(100) = 2  porque 10² = 100<br>
+ln(e²) = 2  porque e² = e²<br>
+log(1000) = 3  porque 10³ = 1000
+            </div>
+        </div>
+        
+        <div class="subtema">6. Ecuaciones exponenciales</div>
+        
+        <div class="concepto">Caso 1: Misma base</div>
+        <div class="detalle">Si podemos expresar todo en la misma base</div>
+        <div class="detalle">Igualamos los exponentes</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Caso 1</div>
+            <div class="contenido">
+2<sup>x+1</sup> = 8<br>
+<br>
+Reescribimos: 2<sup>x+1</sup> = 2³<br>
+<br>
+Igualamos exponentes:<br>
+x + 1 = 3<br>
+x = 2
+            </div>
+        </div>
+        
+        <div class="concepto">Caso 2: Bases diferentes (usar logaritmos)</div>
+        <div class="detalle">Aplicar logaritmo en ambos lados</div>
+        <div class="detalle">Bajar el exponente con la propiedad de potencia</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Caso 2</div>
+            <div class="contenido">
+3<sup>x</sup> = 2<br>
+<br>
+Método 1: Aplicar log<br>
+log(3<sup>x</sup>) = log(2)<br>
+x · log(3) = log(2)<br>
+x = log(2) / log(3)<br>
+<br>
+Método 2: Definición<br>
+x = log₃(2)
+            </div>
+        </div>
+        
+        <div class="concepto">Caso 3: Cambio de variable</div>
+        <div class="detalle">Cuando todos los términos tienen la misma base</div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO - Caso 3</div>
+            <div class="contenido">
+2<sup>x</sup> + 2<sup>x+1</sup> = 12<br>
+<br>
+Paso 1: Reescribir<br>
+2<sup>x</sup> + 2 · 2<sup>x</sup> = 12<br>
+<br>
+Paso 2: Cambio t = 2<sup>x</sup><br>
+t + 2t = 12<br>
+3t = 12<br>
+t = 4<br>
+<br>
+Paso 3: Volver a x<br>
+2<sup>x</sup> = 4<br>
+2<sup>x</sup> = 2²<br>
+x = 2
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 5: SISTEMAS DE ECUACIONES -->
+    <div class="page">
+        <div class="subtema">7. Resolución de sistemas de ecuaciones</div>
+        
+        <div class="concepto">Método de SUSTITUCIÓN</div>
+        
+        <div class="recuadro-explicacion">
+            <div class="titulo">CUÁNDO USAR</div>
+            <div class="contenido">
+Cuando es fácil despejar una incógnita en una ecuación.<br>
+Es el método más intuitivo y directo.
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+{ 2x - y = 9<br>
+{ x + y = 3<br>
+──────────────────<br>
+Paso 1: Despejar y de (1)<br>
+y = 2x - 9<br>
+<br>
+Paso 2: Sustituir en (2)<br>
+x + (2x - 9) = 3<br>
+<br>
+Paso 3: Resolver<br>
+3x - 9 = 3<br>
+3x = 12<br>
+x = 4<br>
+<br>
+Paso 4: Calcular y<br>
+y = 2(4) - 9 = -1<br>
+<br>
+<strong>✓ Solución: (4, -1)</strong>
+            </div>
+        </div>
+        
+        <div class="concepto">Método de IGUALACIÓN</div>
+        
+        <div class="recuadro-explicacion">
+            <div class="titulo">CUÁNDO USAR</div>
+            <div class="contenido">
+Cuando es fácil despejar la misma incógnita en ambas.<br>
+Útil cuando los coeficientes son similares.
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+{ x = 4 + 3y<br>
+{ x = 20(y - 18)<br>
+──────────────────<br>
+Ya está x despejada en ambas<br>
+<br>
+Igualamos:<br>
+4 + 3y = 20(y - 18)<br>
+4 + 3y = 20y - 360<br>
+364 = 17y<br>
+y ≈ 21.4<br>
+<br>
+Sustituimos:<br>
+x = 4 + 3(21.4) ≈ 68.2<br>
+<br>
+<strong>✓ Solución: (68.2, 21.4)</strong>
+            </div>
+        </div>
+        
+        <div class="concepto">Método de REDUCCIÓN</div>
+        
+        <div class="recuadro-explicacion">
+            <div class="titulo">CUÁNDO USAR</div>
+            <div class="contenido">
+El más potente para sistemas complicados.<br>
+Multiplicamos para igualar coeficientes y eliminamos una incógnita.
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+{ 2log x - log y = 5<br>
+{ log(xy) = 4<br>
+──────────────────<br>
+Desarrollamos (2):<br>
+log x + log y = 4<br>
+<br>
+Ahora tenemos:<br>
+{ 2log x - log y = 5<br>
+{ log x + log y = 4<br>
+<br>
+Sumamos ambas:<br>
+3log x = 9<br>
+log x = 3<br>
+x = 10³ = 1000<br>
+<br>
+Sustituimos en (2):<br>
+log y = 4 - 3 = 1<br>
+y = 10<br>
+<br>
+<strong>✓ Solución: (1000, 10)</strong>
+            </div>
+        </div>
+        
+        <div class="subtema">8. Método de Gauss</div>
+        
+        <div class="recuadro-explicacion">
+            <div class="titulo">EXPLICACIÓN</div>
+            <div class="contenido">
+Para sistemas de 3×3 (tres ecuaciones, tres incógnitas).<br>
+<br>
+<strong>Objetivo:</strong> Escalonar el sistema haciendo ceros debajo<br>
+de la diagonal principal mediante operaciones entre filas.
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+{ x + 3y + z = 21<br>
+{ 2x + y - z = -18<br>
+{ 3x - y + 2z = 17<br>
+──────────────────<br>
+Paso 1: Eliminar x de ecuaciones 2 y 3<br>
+(usando operaciones como F₂ - 2F₁, etc.)<br>
+<br>
+Paso 2: Eliminar y de ecuación 3<br>
+<br>
+Paso 3: Sistema escalonado<br>
+Resolver de abajo hacia arriba
+            </div>
+        </div>
+        
+        <div class="concepto">Clasificación según soluciones</div>
+        
+        <div class="diagrama">
+            <div class="diagrama-titulo">Tipos de sistemas</div>
+            <div style="text-align: left; display: inline-block;">
+                <strong style="color: #27ae60;">● SCD</strong> (Compatible Determinado)<br>
+                → Una única solución<br>
+                <br>
+                <strong style="color: #f39c12;">● SCI</strong> (Compatible Indeterminado)<br>
+                → Infinitas soluciones<br>
+                <br>
+                <strong style="color: #e74c3c;">● SI</strong> (Incompatible)<br>
+                → Sin solución (contradicción)
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 6: INECUACIONES -->
+    <div class="page">
+        <div class="subtema">9. Sistemas de inecuaciones</div>
+        
+        <div class="concepto">9.1 Inecuaciones con 1 incógnita</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">REGLA CRÍTICA</div>
+            <div class="contenido">
+Al multiplicar o dividir por un número <strong>NEGATIVO</strong>,<br>
+se invierte el signo de la desigualdad.<br>
+<br>
+Ejemplo: -2x > 6  →  x < -3
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+{ 2x + 6 > x + 3<br>
+{ x - 3 > -1<br>
+──────────────────<br>
+Resolver cada una:<br>
+<br>
+(1): 2x + 6 > x + 3<br>
+     x > -3<br>
+<br>
+(2): x - 3 > -1<br>
+     x > 2<br>
+──────────────────<br>
+Intersección: tomamos la más restrictiva<br>
+<br>
+<strong>✓ Solución: x > 2  →  (2, +∞)</strong>
+            </div>
+        </div>
+        
+        <div class="concepto">9.2 Inecuaciones con fracciones</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">MÉTODO CORRECTO</div>
+            <div class="contenido">
+<strong>NO</strong> multiplicar por el denominador<br>
+(no sabemos si es positivo o negativo)<br>
+<br>
+<strong>SÍ</strong> llevar todo a un lado y estudiar signos
+            </div>
+        </div>
+        
+        <div class="recuadro-ejemplo">
+            <div class="titulo">EJEMPLO</div>
+            <div class="contenido">
+(a + 2x)/(5 - 2x) ≥ 0<br>
+──────────────────<br>
+Paso 1: Encontrar puntos críticos<br>
+Numerador = 0: a + 2x = 0 → x = -a/2<br>
+Denominador = 0: 5 - 2x = 0 → x = 5/2<br>
+<br>
+Paso 2: Tabla de signos<br>
+   Intervalo  │ Num │ Den │ Cociente<br>
+──────────────┼─────┼─────┼──────────<br>
+(-∞, -a/2)    │  -  │  +  │    -<br>
+(-a/2, 5/2)   │  +  │  +  │    +<br>
+(5/2, +∞)     │  +  │  -  │    -<br>
+<br>
+Paso 3: Como queremos ≥ 0<br>
+<strong>✓ Solución: [-a/2, 5/2)</strong>
+            </div>
+        </div>
+        
+        <div class="separador"></div>
+        
+        <div class="tema-principal">Tema 3: Trigonometría</div>
+        
+        <div class="subtema">1. Razones trigonométricas</div>
+        
+        <div class="concepto">1.1 Medidas: ángulos</div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">CONVERSIÓN</div>
+            <div class="contenido" style="text-align: center; font-size: 18px;">
+<strong>π radianes = 180°</strong><br>
+<br>
+1 rad = 180°/π ≈ 57.3°
+            </div>
+        </div>
+        
+        <div class="concepto">1.2 Definiciones básicas</div>
+        
+        <div class="diagrama">
+            <div class="diagrama-titulo">Triángulo rectángulo</div>
+            <div style="font-family: 'Fira Code', monospace; font-size: 14px; line-height: 1.8;">
+                       <span style="color: #e74c3c;">hipotenusa</span><br>
+                      ╱│<br>
+                    ╱  │ <span style="color: #27ae60;">cateto<br>
+                  ╱ α  │ opuesto</span><br>
+                ─────────<br>
+                <span style="color: #4a90e2;">cateto adyacente</span>
+            </div>
+        </div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">RAZONES PRINCIPALES</div>
+            <div class="contenido">
+<strong>Seno:</strong> sen α = cateto opuesto / hipotenusa<br>
+<br>
+<strong>Coseno:</strong> cos α = cateto adyacente / hipotenusa<br>
+<br>
+<strong>Tangente:</strong> tg α = cateto opuesto / cateto adyacente<br>
+                    = sen α / cos α
+            </div>
+        </div>
+        
+        <div class="recuadro-importante">
+            <div class="titulo">RAZONES DERIVADAS</div>
+            <div class="contenido">
+<strong>Cosecante:</strong> cosec α = 1 / sen α<br>
+<br>
+<strong>Secante:</strong> sec α = 1 / cos α<br>
+<br>
+<strong>Cotangente:</strong> cotg α = 1 / tg α
+            </div>
+        
