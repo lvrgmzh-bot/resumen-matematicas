@@ -47,11 +47,10 @@
         
         @media screen and (max-width: 768px) {
             .tema-principal {
-                font-size: 24px;
-                padding: 15px 15px;
-                margin-top: 25px;
-                margin-bottom: 20px;
-                letter-spacing: 1px;
+                font-size: 26px !important;
+                padding: 20px 10px !important;
+                margin-top: 35px !important;
+                margin-bottom: 25px !important;
             }
         }
         
@@ -72,15 +71,6 @@
             border-radius: 0;
         }
         
-        @media screen and (max-width: 768px) {
-            .subtema {
-                font-size: 18px;
-                padding: 10px 15px;
-                margin-top: 20px;
-                margin-bottom: 12px;
-            }
-        }
-        
         /* NIVEL 3 - CONCEPTOS CLAVE (VERDE) */
         .concepto {
             color: #27ae60;
@@ -99,17 +89,6 @@
             font-size: 20px;
         }
         
-        @media screen and (max-width: 768px) {
-            .concepto {
-                font-size: 15px;
-                padding-left: 25px;
-            }
-            .concepto:before {
-                left: 5px;
-                font-size: 16px;
-            }
-        }
-        
         /* NIVEL 4 - DETALLES (NEGRO) */
         .detalle {
             color: #2c3e50;
@@ -126,14 +105,6 @@
             position: absolute;
             left: 0;
             color: #95a5a6;
-        }
-        
-        @media screen and (max-width: 768px) {
-            .detalle {
-                font-size: 13px !important;
-                margin-left: 20px !important;
-                padding-left: 12px !important;
-            }
         }
         
         /* RECUADROS MEJORADOS */
@@ -171,23 +142,6 @@
             border-radius: 0;
         }
         
-        @media screen and (max-width: 768px) {
-            .recuadro-ejemplo {
-                padding: 12px !important;
-                margin: 12px 0 !important;
-                border-width: 2px !important;
-            }
-            .recuadro-ejemplo .titulo {
-                font-size: 15px !important;
-            }
-            .recuadro-ejemplo .contenido {
-                font-size: 11px !important;
-                padding: 8px !important;
-                line-height: 1.5 !important;
-                overflow-x: auto;
-            }
-        }
-        
         .recuadro-importante {
             border: 3px solid #e74c3c;
             background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
@@ -220,22 +174,6 @@
             background: white;
             padding: 15px;
             border-radius: 0;
-        }
-        
-        @media screen and (max-width: 768px) {
-            .recuadro-importante {
-                padding: 12px !important;
-                margin: 12px 0 !important;
-                border-width: 2px !important;
-            }
-            .recuadro-importante .titulo {
-                font-size: 15px !important;
-            }
-            .recuadro-importante .contenido {
-                font-size: 12px !important;
-                padding: 8px !important;
-                overflow-x: auto;
-            }
         }
         
         .recuadro-explicacion {
@@ -271,21 +209,6 @@
             border-radius: 0;
         }
         
-        @media screen and (max-width: 768px) {
-            .recuadro-explicacion {
-                padding: 12px !important;
-                margin: 12px 0 !important;
-                border-width: 2px !important;
-            }
-            .recuadro-explicacion .titulo {
-                font-size: 15px !important;
-            }
-            .recuadro-explicacion .contenido {
-                font-size: 12px !important;
-                padding: 8px !important;
-            }
-        }
-        
         .formula {
             font-family: 'Fira Code', monospace;
             background: #f8f9fa;
@@ -306,27 +229,11 @@
             box-shadow: none;
         }
         
-        @media screen and (max-width: 768px) {
-            .diagrama {
-                padding: 12px !important;
-                margin: 12px 0 !important;
-                overflow-x: auto;
-                border-width: 2px !important;
-            }
-        }
-        
         .diagrama-titulo {
             font-weight: 700;
             margin-bottom: 20px;
             color: #2c3e50;
             font-size: 18px;
-        }
-        
-        @media screen and (max-width: 768px) {
-            .diagrama-titulo {
-                font-size: 16px;
-                margin-bottom: 15px;
-            }
         }
         
         .separador {
@@ -343,29 +250,17 @@
             font-weight: 600;
         }
         
-        /* Evitar desbordamiento horizontal en móvil */
-        @media screen and (max-width: 768px) {
-            html {
-                overflow-x: hidden;
-            }
-            
-            body {
-                overflow-x: hidden;
-                width: 100%;
-            }
-            
-            * {
-                word-wrap: break-word;
-                max-width: 100%;
-            }
-            
-            pre, code {
-                overflow-x: auto;
-                white-space: pre-wrap;
-            }
+        /* Evitar desbordamiento horizontal */
+        html {
+            overflow-x: hidden;
         }
         
-        /* Estilos responsivos */
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Estilos para impresión */
         @media print {
             body {
                 background: white;
@@ -377,26 +272,11 @@
                 border: none;
                 page-break-after: always;
                 margin: 0;
-                padding: 2cm !important;
-                max-width: 100% !important;
+                padding: 2cm;
             }
             @page {
                 size: A4;
                 margin: 0;
-            }
-            /* Restaurar tamaños normales para impresión */
-            .tema-principal {
-                font-size: 32px !important;
-                padding: 20px 25px !important;
-            }
-            .subtema {
-                font-size: 22px !important;
-            }
-            .concepto {
-                font-size: 17px !important;
-            }
-            .detalle {
-                font-size: 15px !important;
             }
         }
     </style>
@@ -453,33 +333,6 @@
             <h2 style="font-size: 32px; margin-bottom: 30px; text-align: center;">📑 ÍNDICE</h2>
             
             <div style="background: white; padding: 30px; border-radius: 0; color: #2c3e50;">
-                
-                <style>
-                    @media screen and (max-width: 768px) {
-                        .page > div:nth-child(3) {
-                            padding: 15px !important;
-                        }
-                        .page > div:nth-child(3) h2 {
-                            font-size: 22px !important;
-                        }
-                        .page > div:nth-child(3) > div {
-                            padding: 12px !important;
-                        }
-                        .page > div:nth-child(3) h3 {
-                            font-size: 17px !important;
-                        }
-                        .page > div:nth-child(3) div[style*="line-height"] {
-                            font-size: 13px !important;
-                            line-height: 1.6 !important;
-                        }
-                        .page > div:nth-child(3) div[style*="margin-left: 25px"] {
-                            margin-left: 12px !important;
-                        }
-                        .page > div:nth-child(3) div[style*="margin-left: 20px"] {
-                            margin-left: 10px !important;
-                        }
-                    }
-                </style>
                 
                 <div style="margin-bottom: 35px;">
                     <h3 style="color: #e74c3c; font-size: 24px; margin-bottom: 15px; border-bottom: 3px solid #e74c3c; padding-bottom: 10px;">
